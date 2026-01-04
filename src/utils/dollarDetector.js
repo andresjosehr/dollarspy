@@ -39,6 +39,21 @@ export function detectDollarSale(message) {
     details.foundKeywords.push('patrón: acción + número');
   }
 
+  // === DETECCIÓN: "Vendo $", "Vendo $$$$" ===
+  const sellWithDollarSign = text.match(config.patterns.sellWithDollarSign);
+  if (sellWithDollarSign) {
+    score += 0.7; // Muy alta probabilidad
+    type = 'sell';
+    details.foundKeywords.push('patrón: acción + $');
+  }
+
+  // === Símbolos de dólar múltiples: $$$$, $$$ ===
+  const dollarSigns = text.match(config.patterns.dollarSigns);
+  if (dollarSigns) {
+    score += 0.2;
+    details.foundKeywords.push('símbolos $');
+  }
+
   // === PALABRAS CLAVE DE MONEDA ===
   const currencyMatches = config.keywords.currency.filter((kw) =>
     text.includes(kw.toLowerCase())

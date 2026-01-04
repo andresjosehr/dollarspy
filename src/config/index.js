@@ -52,8 +52,14 @@ export const config = {
     // "Vendo 100", "tengo 50", "disponible 200" - acción + número
     sellWithNumber: /\b(vendo|tengo|disponible|disponibles|ofrezco|liquido|cambio)\s+(\d+[\d.,]*)/gi,
 
+    // "Vendo $", "Vendo $$$$", "tengo $$$" - acción + símbolo de dólar
+    sellWithDollarSign: /\b(vendo|tengo|disponible|disponibles|ofrezco|liquido|cambio)\s+\$+/gi,
+
     // Detecta montos como: $100, 100$, 100 USD, USD 100
     dollarAmount: /(?:\$\s*[\d,.]+|[\d,.]+\s*\$|[\d,.]+\s*(?:usd|dolares?|dollars?|verdes)|\b(?:usd|us\$)\s*[\d,.]+)/gi,
+
+    // Detecta símbolos de dólar solos: $, $$, $$$, etc.
+    dollarSigns: /\${2,}|\s\$\s|\s\$$/gi,
 
     // Detecta tasas como: 36.5 bs, tasa 36, @36.50, a 36
     exchangeRate: /(?:@\s*[\d,.]+|[\d,.]+\s*(?:bs|bss?|bolivares?)|tasa[:\s]*[\d,.]+|\ba\s+[\d,.]+(?:\s*bs)?)/gi,
