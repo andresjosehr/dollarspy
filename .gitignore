@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# WhatsApp session data
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# User data (uncomment if you want to track your groups config)
+# data/monitored-groups.json

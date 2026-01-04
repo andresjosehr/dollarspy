@@ -1,0 +1,14 @@
+services:
+  whatsapp-monitor:
+    build: .
+    container_name: whatsapp-dollar-monitor
+    restart: unless-stopped
+    ports:
+      - "3847:3847"
+    volumes:
+      # Persistir sesión de WhatsApp
+      - ./.wwebjs_auth:/app/.wwebjs_auth
+      # Persistir grupos monitoreados
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production

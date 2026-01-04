@@ -1,0 +1,27 @@
+{
+  "name": "whatsapp-dollar-monitor",
+  "version": "1.0.0",
+  "description": "Monitor de ventas de dólares en grupos de WhatsApp",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "config": "node src/cli.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "monitor"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "inquirer": "^13.1.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.2"
+  }
+}
